@@ -37,8 +37,8 @@
     export default {
         data() {
             return {
-                url: 'http://localhost:8081/admin/spider_data_source/getData',
-                createUrl: 'http://localhost:8081/admin/spider/scheduleByDataSourceId',
+                url: this.$serverMainPath + 'admin/spider_data_source/getData',
+                createUrl: this.$serverMainPath + 'admin/spider/scheduleByDataSourceId',
                 tableData: [],
                 cur_page: 1,
                 select_word: '',

@@ -55,7 +55,7 @@
                         {required: true, message: '请输入URL', trigger: 'blur'}
                     ]
                 },
-                submitUrl: 'http://localhost:8081/admin/spider_data_source/insert'
+                submitUrl: this.$serverMainPath + 'admin/spider_data_source/insert'
             }
         },
         methods: {

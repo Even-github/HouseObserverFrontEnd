@@ -61,8 +61,8 @@
     export default {
         data() {
             return {
-                url: 'http://localhost:8081/admin/house/getData',
-                delUrl: 'http://localhost:8081/admin/house/deleteData',
+                url: this.$serverMainPath + 'admin/house/getData',
+                delUrl: this.$serverMainPath + 'admin/house/deleteData',
                 tableData: [],
                 cur_page: 1,
                 multipleSelection: [],

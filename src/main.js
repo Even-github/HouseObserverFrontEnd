@@ -6,9 +6,17 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-default/index.css';    // 默认主题
 // import '../static/css/theme-green/index.css';       // 浅绿色主题
 import "babel-polyfill";
+import echarts from 'echarts'
+import {mainPath, serverMainPath, timeFormat} from "../static/js/utils";
+
+'../static/js/utils.js'
 
 Vue.use(ElementUI);
 Vue.prototype.$axios = axios;
+Vue.prototype.$echarts = echarts;
+Vue.prototype.$mainPath = mainPath;
+Vue.prototype.$serverMainPath = serverMainPath;
+Vue.prototype.$timeFormat = timeFormat;
 new Vue({
     router,
     render: h => h(App)

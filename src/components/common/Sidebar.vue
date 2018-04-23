@@ -22,6 +22,7 @@
 <script>
     export default {
         data() {
+            const admin_path =  '/admin/';
             return {
                 items: [
                     {
@@ -30,15 +31,15 @@
                         title: '数据源管理',
                         subs: [
                             {
-                                index: 'AllDataSource',
+                                index: admin_path + 'AllDataSource',
                                 title: '所有数据源'
                             },
                             {
-                                index: 'CreateDataSource',
+                                index: admin_path + 'CreateDataSource',
                                 title: '新增数据源'
                             },
                             {
-                                index: 'UpdateDataSource',
+                                index: admin_path + 'UpdateDataSource',
                                 title: '爬虫更新数据源'
                             }
                         ]
@@ -49,11 +50,11 @@
                         title: '爬虫管理',
                         subs: [
                             {
-                                index: 'CreateSpiderJob',
+                                index: admin_path + 'CreateSpiderJob',
                                 title: '新建爬虫任务'
                             },
                             {
-                                index: 'SpiderMonitor',
+                                index: admin_path + 'SpiderMonitor',
                                 title: '爬虫任务监控'
                             }
                         ]
@@ -64,65 +65,11 @@
                         title: '楼盘数据管理',
                         subs: [
                             {
-                                index: 'AllHouseData',
+                                index: admin_path + 'AllHouseData',
                                 title: '楼盘数据一览'
                             }
                         ]
                     }
-
-                    // {
-                    //     icon: 'el-icon-date',
-                    //     index: 'readme',
-                    //     title: '自述'
-                    // },
-                    // {
-                    //     icon: 'el-icon-menu',
-                    //     index: '2',
-                    //     title: '表格',
-                    //     subs: [
-                    //         {
-                    //             index: 'basetable',
-                    //             title: '基础表格'
-                    //         },
-                    //         {
-                    //             index: 'vuetable',
-                    //             title: 'Vue表格组件'
-                    //         }
-                    //     ]
-                    // },
-                    // {
-                    //     icon: 'el-icon-date',
-                    //     index: '3',
-                    //     title: '表单',
-                    //     subs: [
-                    //         {
-                    //             index: 'baseform',
-                    //             title: '基本表单'
-                    //         },
-                    //         {
-                    //             index: 'vueeditor',
-                    //             title: '编辑器'
-                    //         },
-                    //         {
-                    //             index: 'markdown',
-                    //             title: 'markdown'
-                    //         },
-                    //         {
-                    //             index: 'upload',
-                    //             title: '文件上传'
-                    //         }
-                    //     ]
-                    // },
-                    // {
-                    //     icon: 'el-icon-star-on',
-                    //     index: 'basecharts',
-                    //     title: '图表'
-                    // },
-                    // {
-                    //     icon: 'el-icon-upload2',
-                    //     index: 'drag',
-                    //     title: '拖拽'
-                    // }
                 ]
             }
         },

@@ -47,8 +47,8 @@
     export default {
         data() {
             return {
-                listjobUrl: 'http://localhost:8081/admin/spider/listjobs',
-                cancelUrl: 'http://localhost:8081/admin/spider/cancelJob',
+                listjobUrl: this.$serverMainPath + 'admin/spider/listjobs',
+                cancelUrl: this.$serverMainPath + 'admin/spider/cancelJob',
                 running: [],
                 pending: [],
                 finished: []

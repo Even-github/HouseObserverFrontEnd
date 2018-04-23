@@ -23,8 +23,8 @@
     export default {
         data() {
             return {
-                dataUrl: 'http://localhost:8081/admin/spider/getDataSourceInfo',
-                scheduleUrl: 'http://localhost:8081/admin/spider/scheduleBySpiderName',
+                dataUrl: this.$serverMainPath + 'admin/spider/getDataSourceInfo',
+                scheduleUrl: this.$serverMainPath + 'admin/spider/scheduleBySpiderName',
                 tableData: [],
             }
         },

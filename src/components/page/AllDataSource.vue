@@ -40,8 +40,8 @@
     export default {
         data() {
             return {
-                url: 'http://localhost:8081/admin/spider_data_source/getData',
-                delUrl: 'http://localhost:8081/admin/spider_data_source/delData',
+                url: this.$serverMainPath + 'admin/spider_data_source/getData',
+                delUrl: this.$serverMainPath + 'admin/spider_data_source/delData',
                 tableData: [],
                 cur_page: 1,
                 multipleSelection: [],
