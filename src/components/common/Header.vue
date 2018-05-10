@@ -1,8 +1,31 @@
 <template>
     <div class="header">
         <div class="logo">全国房价爬虫管理系统</div>
+        <p id="exit" @click="exit">退出</p>
     </div>
 </template>
+<script>
+    export default {
+        data() {
+            return {
+                exitUrl: this.$serverMainPath + '/adminUser/exit',
+                loginUrl: this.$rootPath + 'login',
+            }
+        },
+        methods: {
+            exit() {
+                let self = this;
+                self.$axios.get(self.exitUrl)
+                    .then((res) => {
+                        let result = res.data;
+                        if (result.success == true) {
+                            window.location.href = self.loginUrl;
+                        }
+                    })
+            },
+        }
+    }
+</script>
 <style scoped>
     .header {
         position: relative;
@@ -43,5 +66,11 @@
     }
     .el-dropdown-menu__item{
         text-align: center;
+    }
+    #exit {
+        font-size:14px;
+        float:right;
+        margin-right:20px;
+        cursor:pointer;
     }
 </style>

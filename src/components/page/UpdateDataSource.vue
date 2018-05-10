@@ -1,5 +1,6 @@
 <template>
     <div class="table">
+        <h2>爬虫更新数据源</h2><hr style="margin: 10px 0px;">
         <el-table :data="tableData" border style="width: 100%" ref="multipleTable" @selection-change="handleSelectionChange">
             <el-table-column prop="name" label="数据源名称" width="180">
             </el-table-column>
@@ -69,4 +70,4 @@
         width: 300px;
         display: inline-block;
     }
-</style>
+</style>.

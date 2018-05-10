@@ -1,5 +1,6 @@
 <template>
     <div>
+        <h2>新增数据源</h2><hr style="margin: 10px 0px;">
         <div class="form-box">
             <el-form ref="form" :model="form" :rules="rules" label-width="80px">
                 <el-form-item label="数据源" prop="source_name">
@@ -66,7 +67,6 @@
                 } else {
                     self.form.type = "used";
                 }
-                // self.$axios.get(self.submitUrl, {params:self.form})
                 self.$axios.post(self.submitUrl, self.form)
                     .then((res) => {
                         if (res.data.success == true) {

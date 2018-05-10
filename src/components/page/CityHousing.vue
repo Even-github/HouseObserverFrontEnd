@@ -1,80 +1,91 @@
 <template>
     <div id="container">
-        <div id="search_container">
-            <el-input v-model="search_word" placeholder="搜索城市" class="handle-input mr10"></el-input>
-            <el-button id="search_button" type="primary" icon="search" @click="search">搜索</el-button>
+        <div class="content-item-container">
+            <h2><i class="el-icon-search"></i> 搜索城市</h2><hr>
+            <div id="search_container">
+                <el-input v-model="search_word" id="search_box" placeholder="搜索城市" class="handle-input mr10"></el-input>
+                <el-button id="search_button" type="primary" icon="search" @click="search">搜索</el-button>
+            </div>
         </div>
         <div id="content_container" style="display: none;">
-            <h2>{{city}}最新房价</h2><hr>
-            <div id="new-prize-container">
-                <table id="new-prize">
-                    <tr style="height: 50px;vertical-align: bottom;">
-                        <td style="font-size: 30px;color: green;">{{totalAveragePrize}}元/平方米</td>
-                        <td style="font-size: 30px;color: green;">{{newAveragePrize}}元/平方米</td>
-                        <td style="font-size: 30px;color: green;">{{usedAveragePrize}}元/平方米</td>
-                    </tr>
-                    <tr class="prize-label">
-                        <td>平均房价</td>
-                        <td>新房平均房价</td>
-                        <td>二手房平均房价</td>
-                    </tr>
-                    <tr style="height: 50px;vertical-align: bottom;">
-                        <td style="font-size: 30px;color: green;">{{cityRate}}%</td>
-                        <td style="font-size: 30px;color: green;">{{statisticsTime}}</td>
-                    </tr>
-                    <tr class="prize-label">
-                        <td>周变化率</td>
-                        <td>统计时间</td>
-                    </tr>
-                </table>
+            <div class="content-item-container">
+                <h2><i class="el-icon-document"></i> {{city}}最新房价</h2><hr>
+                <div id="new-prize-container">
+                    <table id="new-prize">
+                        <tr style="height: 50px;vertical-align: bottom;">
+                            <td style="font-size: 30px;color: green;">{{totalAveragePrice}}元/平方米</td>
+                            <td style="font-size: 30px;color: green;">{{newAveragePrice}}元/平方米</td>
+                            <td style="font-size: 30px;color: green;">{{usedAveragePrice}}元/平方米</td>
+                        </tr>
+                        <tr class="prize-label">
+                            <td>平均房价</td>
+                            <td>新房平均房价</td>
+                            <td>二手房平均房价</td>
+                        </tr>
+                        <tr style="height: 50px;vertical-align: bottom;">
+                            <td style="font-size: 30px;color: blue;">{{cityRate}}%</td>
+                            <td style="font-size: 30px;">{{statisticsTime}}</td>
+                        </tr>
+                        <tr class="prize-label">
+                            <td>周增长率</td>
+                            <td>统计时间</td>
+                        </tr>
+                    </table>
+                </div>
             </div>
-            <h2>{{city}}房价趋势</h2><hr>
-            <div id="tendency-chart"></div>
-            <h2>{{city}}区域房价情况</h2><hr>
-            <div id="city-table">
-                <el-table
-                    :data="tableData"
-                    stripe=true
-                    :default-sort = "{prop: 'averagePrice', order: 'descending'}"
-                    style="width: 100%">
-                    <el-table-column
-                        prop="county"
-                        label="地区"
-                        width="320px">
-                    </el-table-column>
-                    <el-table-column
-                        prop="averagePrice"
-                        label="平均房价"
-                        sortable
-                        width="180">
-                    </el-table-column>
-                    <el-table-column
-                        class="rate"
-                        prop="weekGrowthRate"
-                        sortable
-                        label="周变化率">
-                    </el-table-column>
-                    <el-table-column
-                        prop="statisticalTime"
-                        label="更新时间"
-                        sortable>
-                    </el-table-column>
-                </el-table>
+            <div class="content-item-container">
+                <h2><i class="el-icon-document"></i> {{city}}房价趋势</h2><hr>
+                <div id="tendency-chart"></div>
             </div>
-            <h2>{{city}}房价趋势预测</h2><hr>
-            <div id="forecast-pie"></div>
-            <div id="vote-container">
-                <p>你认为{{city}}的房价在未来呈怎样的趋势发展？</p>
-                <el-radio v-model="selected" label="0">
-                    <span class="select-item">我认为房价将会上涨</span>
-                </el-radio><br />
-                <el-radio v-model="selected" label="1">
-                    <span class="select-item">我认为房价将会下跌</span>
-                </el-radio><br />
-                <el-radio v-model="selected" label="2">
-                    <span class="select-item">我认为房价将会保持平稳</span>
-                </el-radio><br />
-                <el-button @click="submitVote" type="primary" class="submit-button">提交</el-button>
+            <div class="content-item-container">
+                <h2><i class="el-icon-document"></i> {{city}}区域房价情况</h2><hr>
+                <div id="city-table">
+                    <el-table
+                        :data="tableData"
+                        stripe=true
+                        style="width: 100%">
+                        <el-table-column
+                            prop="county"
+                            label="地区"
+                            width="320px">
+                        </el-table-column>
+                        <el-table-column
+                            prop="averagePrice"
+                            label="平均房价"
+                            width="180">
+                        </el-table-column>
+                        <el-table-column
+                            class="rate"
+                            prop="weekGrowthRate"
+                            label="周增长率">
+                        </el-table-column>
+                        <el-table-column
+                            prop="statisticalTime"
+                            label="更新时间"
+                            sortable>
+                        </el-table-column>
+                    </el-table>
+                </div>
+            </div>
+            <div class="content-item-container">
+                <h2><i class="el-icon-document"></i> {{city}}房价趋势预测</h2><hr>
+                <div id="forecast-pie"></div>
+            </div>
+            <div class="content-item-container">
+                <h2><i class="el-icon-document"></i> 投票</h2><hr>
+                <div id="vote-container">
+                    <p>你认为{{city}}的房价在未来呈怎样的趋势发展？</p>
+                    <el-radio v-model="selected" label="0">
+                        <span class="select-item">我认为房价将会上涨</span>
+                    </el-radio><br />
+                    <el-radio v-model="selected" label="1">
+                        <span class="select-item">我认为房价将会下跌</span>
+                    </el-radio><br />
+                    <el-radio v-model="selected" label="2">
+                        <span class="select-item">我认为房价将会保持平稳</span>
+                    </el-radio><br />
+                    <el-button @click="submitVote" type="primary" class="submit-button">提交</el-button>
+                </div>
             </div>
         </div>
         <div id="empty" style="display: none;">
@@ -89,11 +100,13 @@
         data() {
             return {
                 url:  this.$serverMainPath + 'city/getCityNewPrice',
+                submitUrl: this.$serverMainPath + 'city/submitVote',
+                getVoteUrl: this.$serverMainPath + 'city/getCityVote',
                 search_word: '',
                 city: '',
-                totalAveragePrize: '',
-                newAveragePrize: '',
-                usedAveragePrize: '',
+                totalAveragePrice: '',
+                newAveragePrice: '',
+                usedAveragePrice: '',
                 cityRate: '',
                 statisticsTime: '',
                 timeList: [],
@@ -101,7 +114,8 @@
                 tableData: [],
                 forecastAttitude: ['房价将会上涨', '房价将会下跌', '房价将会保持平稳'],
                 forecastData: [],
-                selected: '0'
+                selected: '0',
+                id: ''
             }
         },
         methods: {
@@ -109,23 +123,37 @@
                 let self = this;
                 self.$axios.get(self.url, {params:{city:self.search_word}})
                     .then((res) => {
-                        document.getElementById('search_container').style.marginTop = '10px';
                         let resultData = res.data.data;
                         if(resultData.cityPriceMainInfo) {
+                            document.getElementById('container').style.paddingTop = '20px';
                             document.getElementById('content_container').style.display = '';
                             document.getElementById('empty').style.display = 'none';
                             let cityPriceMainInfo = resultData.cityPriceMainInfo;
                             let cityPriceChart = resultData.cityPriceChart;
+                            self.id = cityPriceMainInfo.id;
                             self.city = cityPriceMainInfo.city;
-                            self.totalAveragePrize = cityPriceMainInfo.averagePrice.toFixed(2);
-                            self.newAveragePrize = cityPriceMainInfo.newAveragePrice.toFixed(2);
-                            self.usedAveragePrize = cityPriceMainInfo.usedAveragePrice.toFixed(2);
-                            self.cityRate = cityPriceMainInfo.weekGrowthRate.toFixed(2);
-                            self.statisticsTime = this.$timeFormat(cityPriceMainInfo.statisticalTime);
+                            self.totalAveragePrice = cityPriceMainInfo.averagePrice.toFixed(2);
+                            if (cityPriceMainInfo.newAveragePrice != null) {
+                                self.newAveragePrice = cityPriceMainInfo.newAveragePrice.toFixed(2);
+                            } else {
+                                self.newAveragePrice = '-'
+                            }
+                            if (cityPriceMainInfo.usedAveragePrice != null) {
+                                self.usedAveragePrice = cityPriceMainInfo.usedAveragePrice.toFixed(2);
+                            } else {
+                                self.usedAveragePrice = '-'
+                            }
+                            if (cityPriceMainInfo.weekGrowthRate != null) {
+                                self.cityRate = cityPriceMainInfo.weekGrowthRate.toFixed(2);
+                            } else {
+                                self.cityRate = '-'
+                            }
+                            self.statisticsTime = this.$dateFormat(cityPriceMainInfo.statisticalTime);
+
                             self.timeList = cityPriceChart.timeList;
                             self.priceList = cityPriceChart.priceList;
                             self.tableData = resultData.countyPriceInfoList;
-                            self.ConvertForecastData(cityPriceMainInfo);
+                            self.convertForecastData(cityPriceMainInfo);
                             self.dataFormat();
                             self.drawLine();
                             self.drawPie();
@@ -140,7 +168,10 @@
                 tendency.setOption({
                     title: {
                         text: this.city + '房价趋势图',
-                        left: 'center'
+                        left: 'center',
+                        textStyle: {
+                            fontSize: '24'
+                        },
                     },
                     tooltip: {
                         show: true,
@@ -162,7 +193,8 @@
                 })
             },
             drawPie() {
-                let forecastPie = this.$echarts.init(document.getElementById('forecast-pie'));
+                let self = this;
+                let forecastPie = self.$echarts.init(document.getElementById('forecast-pie'));
                 forecastPie.setOption({
                     title : {
                         text: '网友对房价趋势的预测',
@@ -174,15 +206,15 @@
                     legend: {
                         orient: 'vertical',
                         left: 'left',
-                        data: this.forecastAttitude
+                        data: self.forecastAttitude
                     },
-                    series : [
+                    series: [
                         {
                             name: '持此观点的人数',
                             type: 'pie',
                             radius : '55%',
                             center: ['50%', '60%'],
-                            data: this.forecastData,
+                            data: self.forecastData,
                             itemStyle: {
                                 emphasis: {
                                     shadowBlur: 10,
@@ -194,7 +226,7 @@
                     ]
                 });
             },
-            ConvertForecastData(param) {
+            convertForecastData(param) {
                 let self = this;
                 let forecast = new Array();
                 forecast.push({name: self.forecastAttitude[0], value: param.voteRise});
@@ -205,19 +237,46 @@
             dataFormat() {
                 let self = this;
                 for (let i = 0; i < self.timeList.length; i++) {
-                    self.timeList[i] = self.$timeFormat(self.timeList[i]);
+                    self.timeList[i] = self.$dateFormat(self.timeList[i]);
                 }
                 for (let i = 0; i < self.priceList.length; i++) {
                     self.priceList[i] = self.priceList[i].toFixed(2);
                 }
                 for (let i = 0; i < self.tableData.length; i++) {
                     self.tableData[i].averagePrice = self.tableData[i].averagePrice.toFixed(2);
-                    self.tableData[i].weekGrowthRate = self.tableData[i].weekGrowthRate.toFixed(2);
-                    self.tableData[i].statisticalTime = this.$timeFormat(self.tableData[i].statisticalTime);
+                    self.tableData[i].statisticalTime = this.$dateFormat(self.tableData[i].statisticalTime);
+                    if (self.tableData[i].weekGrowthRate != null) {
+                        self.tableData[i].weekGrowthRate = self.tableData[i].weekGrowthRate.toFixed(2) + '%';
+                    } else {
+                        self.tableData[i].weekGrowthRate = '-'
+                    }
                 }
             },
             submitVote() {
-
+                let self = this;
+                self.$axios.get(self.submitUrl, {params:{id:self.id,selected:self.selected}})
+                    .then((res) => {
+                        let result = res.data;
+                        if (result) {
+                            if (result.success == true) {
+                                self.$message.success('提交成功！');
+                                self.getVote();
+                                self.drawPie();
+                            } else {
+                                this.$message.error('提交失败！');
+                            }
+                        }
+                    });
+            },
+            getVote() {
+                let self = this;
+                self.$axios.get(self.getVoteUrl, {params:{id:self.id}})
+                    .then((res) => {
+                        let resultData = res.data.data;
+                        if (resultData) {
+                            self.convertForecastData(resultData);
+                        }
+                    });
             }
         }
     }
@@ -227,13 +286,14 @@
     #container {
         margin: auto;
         width: 900px;
-        min-height: 500px;
+        /*min-height: 500px;*/
+        padding: 200px 0px 10px 0px;
     }
 
     #search_container {
-        width: 900px;
+        width: 880px;
         height: 30px;
-        margin: 200px auto 40px auto;
+        margin: 20px auto;
     }
 
     #content_container {
@@ -300,5 +360,30 @@
 
     .submit-button {
         margin-top: 20px;
+    }
+
+    #search_box {
+        width: 790px;
+    }
+
+    .content-item-container {
+        background-color: #ffffff;
+        border-radius: 15px;
+        margin-bottom: 20px;
+        padding: 10px 10px;
+    }
+
+    hr {
+        color: #00ca79;
+    }
+
+    h2 {
+        font-weight: 500;
+        font-size: 26px;
+        padding-bottom: 10px;
+    }
+
+    .el-table {
+        font-size: 20px;
     }
 </style>

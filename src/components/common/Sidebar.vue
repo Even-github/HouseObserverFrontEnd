@@ -67,9 +67,28 @@
                             {
                                 index: admin_path + 'AllHouseData',
                                 title: '楼盘数据一览'
+                            },
+                            {
+                                index: admin_path + 'DataStatistics',
+                                title: '数据统计'
                             }
                         ]
-                    }
+                    },
+                    {
+                        icon: 'el-icon-setting',
+                        index: '4',
+                        title: '网站管理',
+                        subs: [
+                            {
+                                index: admin_path + 'AboutEditor',
+                                title: '网站介绍'
+                            },
+                            {
+                                index: admin_path + 'AdminPwdManage',
+                                title: '管理员登录密码'
+                            },
+                        ]
+                    },
                 ]
             }
         },

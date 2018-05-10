@@ -8,8 +8,12 @@
                 <el-menu-item index="1"><a :href="index"><div>首页</div></a></el-menu-item>
                 <el-menu-item index="2"><a :href="HousingMap"><div>全国房价</div></a></el-menu-item>
                 <el-menu-item index="3"><a :href="ProvinceHousing"><div>省份房价</div></a></el-menu-item>
-                <el-menu-item index="4"><a :href="CityHousing"><div>城市房价</div></a></el-menu-item>
-                <el-menu-item index="5"><a :href="admin" target="_blank"><div>管理员登录</div></a></el-menu-item>
+                <el-submenu index="4">
+                    <template slot="title">城市房价</template>
+                    <el-menu-item index="4-1"><a :href="CityHousing"><div>城市房价详情</div></a></el-menu-item>
+                    <el-menu-item index="4-2"><a :href="CityContrast"><div>城市房价对比</div></a></el-menu-item>
+                </el-submenu>
+                <el-menu-item index="5"><a :href="login" target="_blank"><div>管理员登录</div></a></el-menu-item>
                 <el-menu-item index="6"><a :href="about"><div>关于</div></a></el-menu-item>
             </el-menu>
         </header>
@@ -23,6 +27,8 @@
 </template>
 
 <script>
+    import index from "../../router";
+
     export default {
         name: "main-home",
         data() {
@@ -32,7 +38,8 @@
                 HousingMap: this.$mainPath + 'HousingMap',
                 ProvinceHousing: this.$mainPath + 'ProvinceHousing',
                 CityHousing: this.$mainPath + 'CityHousing',
-                admin: this.$mainPath + 'admin',
+                CityContrast: this.$mainPath + 'CityContrast',
+                login: this.$rootPath + 'login',
                 about: this.$mainPath + 'about',
             }
         },
@@ -61,13 +68,19 @@
         border-bottom: #e0e2e5 2px solid;
     }
 
+    .el-menu {
+        background-color: #FFFFFF;
+    }
+
     .home-main {
+        background-color: #eef1f6;
         min-height: 600px;
     }
     .home-footer {
         background-color: #eef1f6;
         height: 60px;
         border-top: #e0e2e5 2px solid;
+        background-color: #FFFFFF;
     }
     #logo {
         height: 60px;

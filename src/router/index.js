@@ -6,6 +6,10 @@ Vue.use(Router);
 export default new Router({
     routes: [
         {
+            path: '/login',
+            component: resolve => require(['../components/page/Login.vue'], resolve),
+        },
+        {
             path: '/admin',
             component: resolve => require(['../components/common/AdminHome.vue'], resolve),
             children: [
@@ -36,6 +40,18 @@ export default new Router({
                 {
                     path: 'AllHouseData',
                     component: resolve => require(['../components/page/AllHouseData.vue'], resolve)
+                },
+                {
+                    path: 'DataStatistics',
+                    component: resolve => require(['../components/page/DataStatistics.vue'], resolve)
+                },
+                {
+                    path: 'AboutEditor',
+                    component: resolve => require(['../components/page/AboutEditor.vue'], resolve)
+                },
+                {
+                    path: 'AdminPwdManage',
+                    component: resolve => require(['../components/page/AdminPwdManage.vue'], resolve)
                 }
             ]
         },
@@ -58,6 +74,10 @@ export default new Router({
                 {
                     path: 'cityHousing',
                     component: resolve => require(['../components/page/CityHousing.vue'], resolve)
+                },
+                {
+                    path: 'cityContrast',
+                    component: resolve => require(['../components/page/CityContrast.vue'], resolve)
                 },
                 {
                     path: 'about',

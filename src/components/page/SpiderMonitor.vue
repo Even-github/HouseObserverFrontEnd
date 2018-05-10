@@ -1,5 +1,6 @@
 <template>
     <div class="table">
+        <h2>爬虫任务监控</h2><hr style="margin: 10px 0px;">
         <h3 class="status-title" style="float:left">正在进行</h3>
         <el-button  @click="refresh" style="float:right">刷新</el-button>
         <el-table :data="this.running" border style="width: 100%">

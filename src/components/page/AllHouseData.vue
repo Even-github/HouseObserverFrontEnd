@@ -1,5 +1,6 @@
 <template>
     <div class="table">
+        <h2>楼盘数据一览</h2><hr style="margin: 10px 0px;">
         <div class="handle-box">
             <el-button type="primary" icon="delete" class="handle-del mr10" @click="delAll">批量删除</el-button>
             <el-input v-model="select_word" placeholder="搜索关键词" class="handle-input mr10"></el-input>

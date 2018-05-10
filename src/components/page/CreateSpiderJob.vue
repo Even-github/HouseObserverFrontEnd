@@ -1,5 +1,6 @@
 <template>
     <div class="table">
+        <h2>新建爬虫任务</h2><hr style="margin: 10px 0px;">
         <div class="handle-box">
             <el-input v-model="select_word" placeholder="搜索关键词" class="handle-input mr10"></el-input>
             <el-button type="primary" icon="search" @click="search">搜索</el-button>
